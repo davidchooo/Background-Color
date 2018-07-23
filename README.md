@@ -1,2 +1,2 @@
-# chrome_extensions
-Practice working with Chrome Extensions.
+# Background-Color
+Chrome extension to change background of developer.chrome.com sites.
