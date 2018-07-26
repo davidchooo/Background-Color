@@ -1,48 +1,25 @@
-chrome.runtime.onMessage.addListener(changeColor);
+//chrome.runtime.onMessage.addListener(changeColor);
 
-function changeColor(message, sender, sendResponse){
-    console.log(message.txt);
-    if (message.txt === "hello"){
-        document.body.style.backgroundColor = "#FF0000";
-    }
-}
-
-
-
-/*
-//create buttons
-let page = document.getElementById('buttonDiv');
-const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
-function constructOptions(kButtonColors) {
-    for (let item of kButtonColors) {
-        let button = document.createElement('button');
-        button.style.backgroundColor = item;
-        button.addEventListener('click', function() {
-            console.log("test");
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.executeScript(
-                        tabs[0].id,
-                        {code: 'document.body.style.backgroundColor = "' + item + '";'});
-            });
-        });
-        page.appendChild(button);
-    }
-}
-constructOptions(kButtonColors);
-*/
-
-/*
-// reset the background
-let reset = document.getElementById('reset');
-
-reset.onclick = function(element) {
-    let color = chrome.storage.sync.get(['resetCol'], function(){
-        console.log("Reset color obtained.");
-    });
+function changeColor(color){
+//    document.body.style.backgroundColor = "#FF0000";
+    alert('hi');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.executeScript(
                 tabs[0].id,
                 {code: 'document.body.style.backgroundColor = "' + color + '";'});
     });
-};
-*/
+}
+
+//create buttons
+let page = document.getElementById('buttonDiv');
+const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
+function constructOptions(kButtonColors) {
+    for (let color of kButtonColors) {
+        let button = document.createElement('button');
+        button.style.backgroundColor = color;
+
+        button.addEventListener('click', changeColor.bind(null, color));
+        page.appendChild(button);
+    }
+}
+constructOptions(kButtonColors);
