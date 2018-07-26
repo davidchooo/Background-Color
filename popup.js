@@ -1,8 +1,6 @@
 //chrome.runtime.onMessage.addListener(changeColor);
 
 function changeColor(color){
-//    document.body.style.backgroundColor = "#FF0000";
-    alert('hi');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.executeScript(
                 tabs[0].id,
