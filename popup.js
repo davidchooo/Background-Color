@@ -2,6 +2,9 @@ chrome.runtime.onMessage.addListener(changeColor);
 
 function changeColor(message, sender, sendResponse){
     console.log(message.txt);
+    if (message.txt === "hello"){
+        document.body.style.backgroundColor = "#FF0000";
+    }
 }
 
 
