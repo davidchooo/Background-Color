@@ -1,3 +1,4 @@
+/*
 chrome.runtime.onInstalled.addListener(function(){
     //set default color
     //
@@ -16,4 +17,16 @@ chrome.runtime.onInstalled.addListener(function(){
         }]);
     });
 });
+*/
+
+
+chrome.browserAction.onClicked.addListener(buttonClicked);
+
+function buttonClicked(tab){
+    console.log("test");
+    let msg = {
+        txt: "hello"
+    }
+    chrome.tabs.sendMessage(tab.id, msg);
+};
 
