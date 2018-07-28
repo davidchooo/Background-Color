@@ -1,2 +1,2 @@
 # Background Color
-Chrome extension to change background of developer.chrome.com sites.
+Chrome extension to change background of sites.
